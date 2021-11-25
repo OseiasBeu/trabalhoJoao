@@ -9,7 +9,7 @@ class Settings():
         self.screen_height = 690
         self.bg_color = (230, 230, 230)
         self.fonte = pygame.font.SysFont('arial',30,True,True)
-        # self.fundo = pygame.image.load('assets/img/praia.png').convert()
+        self.fundo = 'assets/img/praia.png'
         # self.background_image_level1 = pygame.image.load('assets/img/praia.png').convert()
 
         # Configurações dos projéteis

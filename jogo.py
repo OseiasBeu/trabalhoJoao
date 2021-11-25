@@ -20,8 +20,8 @@ def run_game():
     
     # Cria Palavras
     # word = Word(ai_settings,screen)
-    word = Group()
-    gf.create_list_word(ai_settings,screen,word)
+    # word = Group()
+    list_words = gf.create_list_word(ai_settings,screen)
    
     """ Criar classe nível"""
     #------ Inicia Musicas
@@ -32,6 +32,6 @@ def run_game():
     # ===== Loop principal =====
     while True:
         gf.check_events(ai_settings,screen)
-        gf.update_screen(ai_settings,screen,word)
+        gf.update_screen(ai_settings,screen,list_words)
 
 run_game()
