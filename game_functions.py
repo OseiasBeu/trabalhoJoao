@@ -15,7 +15,7 @@ def check_keydown_events(event, ai_settings, screen):
     if event.key == pygame.K_q:
         sys.exit()
     
-def update_screen(ai_settings, screen,list_words):
+def update_screen(ai_settings, screen,list_words, gun):
     """ Atualiza as imagens da tela."""
     # Adiciona imagem de fundo
     fundo = pygame.image.load('assets/img/praia.png').convert()
@@ -25,7 +25,7 @@ def update_screen(ai_settings, screen,list_words):
     # word.blitme((word.x,word.y))
     for word in list_words:
         screen.blit(ai_settings.fonte.render(word['palavra'], True,(0,0,0)),(word['x'],word['y']))
-    
+    gun.blitme()
     pygame.display.flip()
 
 def get_number_words_x(ai_settings, word_width):

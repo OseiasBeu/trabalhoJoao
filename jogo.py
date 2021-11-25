@@ -1,8 +1,8 @@
 import pygame
-from pygame.sprite import Group
 from settings import Settings
 import game_functions as gf
-from words import Word
+from gun import Gun
+
 
 
 import random
@@ -17,6 +17,8 @@ def run_game():
     pygame.display.set_caption("Shot word!")
 
     # Cria canhão de tiro
+    gun = Gun(ai_settings, screen)
+
     
     # Cria lista Palavras
     list_words = gf.create_list_word(ai_settings,screen)
@@ -30,5 +32,5 @@ def run_game():
     # ===== Loop principal =====
     while True:
         gf.check_events(ai_settings,screen)
-        gf.update_screen(ai_settings,screen,list_words)
+        gf.update_screen(ai_settings,screen,list_words, gun)
 run_game()
