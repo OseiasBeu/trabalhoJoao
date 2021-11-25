@@ -42,7 +42,7 @@ def create_list_word(ai_settings, screen):
     list_words = []
 
     for word_number in range(number_words_x):
-        word_x = word_number * 100
-        list_words.append(word.create_word(word_number,word_x))
+        word_x, word_y = word.word_coords(word_number)
+        list_words.append(word.create_word(word_number,word_x,word_y))
     
     return list_words

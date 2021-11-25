@@ -18,9 +18,7 @@ def run_game():
 
     # Cria canhão de tiro
     
-    # Cria Palavras
-    # word = Word(ai_settings,screen)
-    # word = Group()
+    # Cria lista Palavras
     list_words = gf.create_list_word(ai_settings,screen)
    
     """ Criar classe nível"""
@@ -33,5 +31,4 @@ def run_game():
     while True:
         gf.check_events(ai_settings,screen)
         gf.update_screen(ai_settings,screen,list_words)
-
 run_game()

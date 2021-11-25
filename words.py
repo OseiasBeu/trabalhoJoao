@@ -11,6 +11,7 @@ class Word():
         self.ai_settings = ai_settings
 
         # Carrega a palavra
+        ## Colocar essa lista de palavras em um arquivo
         self.lista_palavras = ['Bola', 'Areia', 'Sol', 'Água', 'Vento', 'Churrasco', 'Carangueijo'] 
         self.width = 50
         self.word = ''
@@ -27,15 +28,28 @@ class Word():
         return self.word
 
     
-    def create_word(self, word_number,word_x):
+    def create_word(self, word_number,word_x,word_y):
         word = {}
         word['palavra'] = self.get_random_word()
         word['x'] = self.x + word_x
-        word['y'] = self.y
+        word['y'] = self.y + word_y
         word['width'] = self.width
         word['word_number'] = word_number
 
         return word
+
+    def word_coords(self,word_number):
+        word_x =  word_number * 100
+        pixel_number = random.randint(0,30)
+
+        if (word_number % 2 == 0):
+            word_y = word_number * pixel_number
+            # word_x =  pixel_number 10
+        else:
+            word_y = word_number   * pixel_number 
+        return word_x,word_y
+
+            
 
 
     def blitme(self, x, y):
