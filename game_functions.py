@@ -17,12 +17,14 @@ def check_keydown_events(event, ai_settings, screen):
     
 def update_screen(ai_settings, screen,list_words, gun):
     """ Atualiza as imagens da tela."""
+    #------ Inicia Musicas
+    ai_settings.sound
+
     # Adiciona imagem de fundo
     fundo = pygame.image.load('assets/img/praia.png').convert()
     screen.blit(fundo,(0,0))
 
-    # Deixa a tela mais recente visivel
-    # word.blitme((word.x,word.y))
+    # Adiciona palavras na tela
     for word in list_words:
         screen.blit(ai_settings.fonte.render(word['palavra'], True,(0,0,0)),(word['x'],word['y']))
     gun.blitme()
