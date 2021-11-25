@@ -1,5 +1,5 @@
 import pygame
-from pygame import Sprite
+from pygame.sprite import Sprite
 import random
 
 
@@ -18,7 +18,7 @@ class Word(Sprite):
         self.word = self.ai_settings.fonte.render(self.word, True,(0,0,0))
         
         # Inicia a palavra próximo à parte superior esqueda da tela
-        self.x = 0
+        self.x = float(self.width)
         self.y = 0
 
         # Armazena a posição da palavra

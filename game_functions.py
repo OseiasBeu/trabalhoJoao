@@ -21,27 +21,24 @@ def update_screen(ai_settings, screen,word):
     # Adiciona imagem de fundo
     fundo = pygame.image.load('assets/img/praia.png').convert()
     screen.blit(fundo,(0,0))
-    length_list_word = word.get_length_list_word()
+    # length_list_word = word.get_length_list_word()
 
     # Deixa a tela mais recente visivel
-    for i in range(length_list_word):
-        word.blitme() 
+    # for i in range(length_list_word):
+    word.blitme(screen) 
     pygame.display.flip()
 
 def get_number_words_x(ai_settings, word_width):
-    """ Determina o número de alienígenas que cabem em uma linha."""
+    """ Determina o número de palavras que cabem em uma linha."""
     available_space_x = ai_settings.screen_width - 2 * word_width
     number_words_x = int(available_space_x/(2* word_width))
     return number_words_x
 
 
-def create_word(ai_settings, screen, words):
-    
+def create_word(ai_settings, screen, words, number_words):
     word = Word(ai_settings, screen)
-    x = 100
-    y = 10
-    word.x = x
-    word.y = y
+    word_width = word.width
+    word.x = word.x +2 * word_width * number_words
     words.add(word)
 
 def create_list_word(ai_settings, screen, words):
@@ -50,6 +47,6 @@ def create_list_word(ai_settings, screen, words):
     number_words_x = get_number_words_x(ai_settings, word.width)
 
     for word_number in range(number_words_x):
-        create_word(ai_settings, screen, word_number)
+        create_word(ai_settings, screen, words,word_number)
 
 

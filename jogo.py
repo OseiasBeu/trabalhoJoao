@@ -24,7 +24,6 @@ def run_game():
     gf.create_list_word(ai_settings,screen,word)
    
     """ Criar classe nível"""
- 
 
     #------ Inicia Musicas
     musica = pygame.mixer.music.load('assets/snd/theme.mp3')
