@@ -2,20 +2,26 @@ import sys
 import pygame
 from words import Word
 
-def check_events(ai_settings,screen):
+def check_events(ai_settings,screen,text_input_box_group):
     """ Responde a eventos de pressionamento de teclas e de mouse. """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            check_keydown_events(event, ai_settings, screen)
+            check_keydown_events(event, ai_settings, screen,text_input_box_group)
 
-def check_keydown_events(event, ai_settings, screen):
+
+
+def check_keydown_events(event, ai_settings, screen, text_input_box_group):
     """ Responde a pressionamento de teclas."""
     if event.key == pygame.K_q:
         sys.exit()
+    else:
+        text_input_box_group.update(pygame.event.get())
+
+
     
-def update_screen(ai_settings, screen,list_words, gun):
+def update_screen(ai_settings, screen,list_words, gun,text_input_box_group):
     """ Atualiza as imagens da tela."""
     #------ Inicia Musicas
     ai_settings.sound
@@ -28,7 +34,10 @@ def update_screen(ai_settings, screen,list_words, gun):
     for word in list_words:
         screen.blit(ai_settings.fonte.render(word['palavra'], True,(0,0,0)),(word['x'],word['y']))
     gun.blitme()
+
+    text_input_box_group.draw(screen)
     pygame.display.flip()
+
 
 def get_number_words_x(ai_settings, word_width):
     """ Determina o número de palavras que cabem em uma linha."""
