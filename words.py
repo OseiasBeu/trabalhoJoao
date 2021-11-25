@@ -19,7 +19,7 @@ class Word(Sprite):
         
         # Inicia a palavra próximo à parte superior esqueda da tela
         self.x = float(self.width)
-        self.y = 0
+        self.y = 10
 
         # Armazena a posição da palavra
         # self.x = float(self.rect.x)
