@@ -1,14 +1,11 @@
 import sys
 import pygame
 from words import Word
-from text_input import TextInputBox
+# from text_input import TextInputBox
+import text_input
 
 def check_events(ai_settings,screen,textinput):
     """ Responde a eventos de pressionamento de teclas e de mouse. """
-    # Entrada de texto
-    # font = pygame.font.SysFont(None, 100)
-    # text_input_box = TextInputBox(50, 50, 400, font)
-    # group = pygame.sprite.Group(text_input_box)
     event_list = pygame.event.get()
     for event in event_list:
         if event.type == pygame.QUIT:
@@ -16,9 +13,6 @@ def check_events(ai_settings,screen,textinput):
         elif event.type == pygame.KEYDOWN:
             check_keydown_events(event, ai_settings, screen,textinput)
             textinput.update(event_list)
-    
-
-
 
 def check_keydown_events(event, ai_settings, screen, textinput):
     """ Responde a pressionamento de teclas."""
@@ -26,10 +20,11 @@ def check_keydown_events(event, ai_settings, screen, textinput):
         sys.exit()
     if event.key == pygame.K_RETURN:
         print(f'{textinput.value}')
+        word_digitalized = textinput.value
         textinput.value = ''
-    # else:
-    #     text_input_box_group.update(pygame.event.get())
+        text_input.remove_word(word_digitalized)
 
+    
 
     
 def update_screen(ai_settings, screen,list_words, gun, textinput):
@@ -46,7 +41,7 @@ def update_screen(ai_settings, screen,list_words, gun, textinput):
         screen.blit(ai_settings.fonte.render(word['palavra'], True,(0,0,0)),(word['x'],word['y']))
     gun.blitme()
 
-    screen.blit(textinput.surface, (ai_settings.screen_width/4, ai_settings.screen_height-100))
+    screen.blit(textinput.surface, (ai_settings.screen_width/5, ai_settings.screen_height-100))
 
     # text_input_box_group.draw(screen)
     pygame.display.flip()
